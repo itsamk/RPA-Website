@@ -1,0 +1,8 @@
+com\cg\rpa\dao\UserDaoImpl.class
+com\cg\rpa\model\User.class
+com\cg\rpa\dao\UserDao.class
+com\cg\rpa\model\Login.class
+com\cg\rpa\controller\RegistrationController.class
+com\cg\rpa\dao\UserService.class
+com\cg\rpa\dao\UserMapper.class
+com\cg\rpa\controller\LoginController.class
