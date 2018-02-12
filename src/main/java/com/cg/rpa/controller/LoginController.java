@@ -28,8 +28,9 @@ public class LoginController {
 	public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response){
 		System.out.println("The login mapping executed");
 		HttpSession session = request.getSession(false);
+		User user_cred = (User) session.getAttribute("user_cred");
 		ModelAndView mav;
-		if(null == session) {
+		if(user_cred==null) {
 			System.out.println(session);
 		mav = new ModelAndView("login");
 		mav.addObject("login", new Login());
@@ -56,7 +57,7 @@ public class LoginController {
 			// mav.addObject("firstname", user.getFirstname());
 		} else {
 			mav = new ModelAndView("login");
-			mav.addObject("message", "Username or Password is wrong!!");
+			mav.addObject("message", "Username or Password is wrong or there is an empty required field!!");
 		}
 		return mav;
 	}
@@ -70,6 +71,18 @@ public class LoginController {
 		mav.addObject("RpaPipelineMaster", new RpaPipelineMaster());
 		// mav.addObject("firstname", user.getFirstname());
 
+		return mav;
+	}
+	@RequestMapping(value = "/signOut", method = RequestMethod.GET)
+	public ModelAndView signOut(HttpServletRequest request, HttpServletResponse response) {
+
+		ModelAndView mav = null;
+		
+		HttpSession session = request.getSession();
+		session.invalidate();
+		mav = new ModelAndView("login");
+		mav.addObject("login", new Login());
+		mav.addObject("message", "You have successfully signed out.");
 		return mav;
 	}
 }

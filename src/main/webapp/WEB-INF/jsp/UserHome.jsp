@@ -8,6 +8,7 @@
 </head>
 <body>
 <h1 align="center"> User Home </h1>
+<h3 align="right"><a href="signOut">Sign Out</a></h3>
 <a href="userhome">Create New Deal</a>
 <br>
 <a href="www.google.com">View Previous Deals</a>
