@@ -36,7 +36,7 @@ public class LoginController {
 		System.out.println("Inside loginProcess()" + " " + login.getUsername());
 		ModelAndView mav = null;
 		User user = userService.validateUser(login);
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession(true);
 		session.setAttribute("user_cred", user);
 		if (null != user && null!= login.getAccess()) {
 			if (login.getAccess().equals("user"))
