@@ -1,5 +1,7 @@
 package com.cg.rpa.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -23,10 +25,17 @@ public class LoginController {
 	UserDao userService;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response){
 		System.out.println("The login mapping executed");
-		ModelAndView mav = new ModelAndView("login");
+		HttpSession session = request.getSession(false);
+		ModelAndView mav;
+		if(null == session) {
+			System.out.println(session);
+		mav = new ModelAndView("login");
 		mav.addObject("login", new Login());
+		}
+		else
+			mav = new ModelAndView("UserHome");
 		return mav;
 	}
 
