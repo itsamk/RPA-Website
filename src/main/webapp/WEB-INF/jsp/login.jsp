@@ -27,19 +27,21 @@
 				</td>
 			</tr>
 			<tr>
-				<td colspan="2"><form:radiobutton name="access" path="access" value="user" />
-					User<br> <form:radiobutton name="access" path="access" value="admin"/>
-					Administrator<br>
-			<tr>
-				<td></td>
-				<td><a href="home.jsp">Home</a></td>
-			</tr>
+				<td colspan="2"><form:radiobutton name="access" path="access"
+						value="user" /> User<br> <form:radiobutton name="access"
+						path="access" value="admin" /> Administrator<br>
 		</table>
 	</form:form>
 	<table align="center">
 		<tr>
 			<td style="font-style: italic; color: red;">${message}</td>
+			<td>New User? <a href="register">Register here.</a>
 		</tr>
+		<tr>
+		<td></td>
+		<td align="center"><a href="home.jsp">Home</a></td>
+	</tr>
 	</table>
+	
 </body>
 </html>

@@ -15,6 +15,7 @@
 			<td><a href="register">Register</a></td>
 		</tr>
 	</table>
+<% response.sendRedirect("login"); %>
 
 			</body>
 </html>
