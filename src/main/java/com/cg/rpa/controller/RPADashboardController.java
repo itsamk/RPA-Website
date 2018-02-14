@@ -34,40 +34,62 @@ import com.cg.rpa.dao.UserServiceImpl;
 public class RPADashboardController {
 	@Autowired
 	UserServiceImpl userService;
+
 	/*
-	  @RequestMapping("/RPADashboardController") public ModelAndView showMessage(
-	  
-	  @RequestParam(value = "account", required = false, defaultValue = "World1")
-	  String name) { System.out.println("in RPADashboardController");
-	  
-	  ModelAndView mv = new ModelAndView("ProjectEntrySuccess");
-	  mv.addObject("message", message); mv.addObject("account", name); return mv; }
-	 
-*/
+	 * @RequestMapping("/RPADashboardController") public ModelAndView showMessage(
+	 * 
+	 * @RequestParam(value = "account", required = false, defaultValue = "World1")
+	 * String name) { System.out.println("in RPADashboardController");
+	 * 
+	 * ModelAndView mv = new ModelAndView("ProjectEntrySuccess");
+	 * mv.addObject("message", message); mv.addObject("account", name); return mv; }
+	 * 
+	 */
 	@RequestMapping(value = "/rpadashboardcontroller", method = RequestMethod.POST)
 	public ModelAndView registerRPADeal(HttpServletRequest request, HttpServletResponse response,
-			@ModelAttribute("RpaPipelineMaster") RpaPipelineMaster rpaPipelineMaster,BindingResult result, ModelMap model) {
+			@ModelAttribute("RpaPipelineMaster") RpaPipelineMaster rpaPipelineMaster, BindingResult result,
+			ModelMap model) {
 
 		System.out.println("Inside registerRPADeal************");
 
 		ModelAndView mav = null;
-		 User user = userService.registerDeal(new RpaPipelineMaster());
-		 
-		 HttpSession session = request.getSession();
-		  session.setAttribute("UserName", "helloooooooo");
-		  session.setAttribute("registeredDeal", rpaPipelineMaster);
-		 
+		User user = userService.registerDeal(new RpaPipelineMaster());
+
+		HttpSession session = request.getSession();
+		session.setAttribute("UserName", "helloooooooo");
+		session.setAttribute("registeredDeal", rpaPipelineMaster);
+
 		if (null != user) {
 			System.out.println("helloooooo");
 			mav = new ModelAndView("ProjectEntrySuccess");
 			mav.addObject("businessUnit", rpaPipelineMaster.getBusinessUnit());
 			System.out.println("Account=" + rpaPipelineMaster.getAccount());
-			
+
 		} else {
 			mav = new ModelAndView("login");
 			mav.addObject("message", "Username or Password is wrong!!");
 		}
 
+		return mav;
+	}
+
+	@RequestMapping(value = "/deals", method = RequestMethod.GET)
+	public ModelAndView deals(HttpServletRequest request, HttpServletResponse response) {
+
+		System.out.println("Inside Deals");
+
+		ModelAndView mav = null;
+		
+		HttpSession session = request.getSession(false);
+		User user_cred = (User) session.getAttribute("user_cred");
+	
+		if(user_cred==null) {
+			System.out.println(session);
+		mav = new ModelAndView("login");
+		mav.addObject("login", new Login());
+		}
+		else
+			mav = new ModelAndView("Deals");
 		return mav;
 	}
 }

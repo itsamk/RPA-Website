@@ -16,6 +16,7 @@ pageEncoding="ISO-8859-1"%>
 				<td><form:input type="text" name="s_no" path="serialNumber" />
 				<td>Business Unit
 				<td><form:input type="text" name="bu" path="businessUnit"/>
+				<td> <a href="home.jsp">Dashboard</a>
 			</tr>
 			<tr>
 				<td>Account

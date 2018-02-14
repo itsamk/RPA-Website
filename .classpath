@@ -25,6 +25,7 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/akankane/.m2/repository/org/springframework/spring-core/4.3.13.RELEASE/spring-core-4.3.13.RELEASE.jar"/>
 	<classpathentry kind="lib" path="C:/Users/akankane/.m2/repository/org/springframework/spring-context/4.3.13.RELEASE/spring-context-4.3.13.RELEASE.jar"/>
+	<classpathentry kind="lib" path="derby.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>

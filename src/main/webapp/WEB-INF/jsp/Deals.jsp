@@ -4,16 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>User Home</title>
+<title>Deals</title>
 </head>
 <body>
-<h1 align="center"> User Home </h1>
-<h3 align="right"><a href="signOut">Sign Out</a></h3>
-<a href="home.jsp">Dashboard</a>
+<h1 align="center"> Deals </h1>
+<a href="userhome">Create New Deal</a>
 <br>
-<a href="deals">Deals</a>
+<a href="www.google.com">View Previous Deals</a>
 <br>
-<a href="edituser">Edit User Information</a>
 
 </body>
 </html>
